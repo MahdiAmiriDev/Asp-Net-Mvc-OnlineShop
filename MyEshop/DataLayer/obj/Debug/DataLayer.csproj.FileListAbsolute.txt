@@ -1,0 +1,12 @@
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\DataLayer\bin\Debug\DataLayer.dll.config
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\DataLayer\bin\Debug\DataLayer.dll
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\DataLayer\bin\Debug\DataLayer.pdb
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\DataLayer\bin\Debug\EntityFramework.dll
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\DataLayer\bin\Debug\EntityFramework.xml
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\DataLayer\obj\Debug\DataLayer.csprojAssemblyReference.cache
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\DataLayer\obj\Debug\DataLayer.dll
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\DataLayer\obj\Debug\DataLayer.pdb
