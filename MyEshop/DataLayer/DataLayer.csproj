@@ -65,6 +65,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EshopModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="MetaDataClasses\RolesMetaData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles.cs">
       <DependentUpon>EshopModel.tt</DependentUpon>
@@ -72,6 +73,7 @@
     <Compile Include="Users.cs">
       <DependentUpon>EshopModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MetaDataClasses\UsersMetaData.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="EshopModel.edmx">
