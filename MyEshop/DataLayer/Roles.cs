@@ -21,7 +21,7 @@ namespace DataLayer
         {
             this.Users = new HashSet<Users>();
         }
-    
+     
         public int RoleID { get; set; }
         public string RoleTitle { get; set; }
         public string RoleName { get; set; }
