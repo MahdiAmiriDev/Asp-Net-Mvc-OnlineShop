@@ -19,12 +19,15 @@ namespace MyEshop.Controllers
             return View();
         }
 
+        [Route("Register")]
         public ActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
+        [Route("Register")]
+        [ValidateAntiForgeryToken]
         public ActionResult Register (RegisterViewModel register)
         {
             if (ModelState.IsValid)
@@ -58,6 +61,8 @@ namespace MyEshop.Controllers
 
                     db.Users.Add(user);
                     db.SaveChanges();
+                    string body = PartialToStringClass.RenderPartialView("ManageEmail", "SendActivationEmail", user);
+                    SendEmail.Send(user.Emain, "ایمیل فعالسازی", body);
                     return View("SuccessRegister", user);
                 }
             }
@@ -75,5 +80,21 @@ namespace MyEshop.Controllers
             ModelState.AddModelError(properyName , $"کاربر گرامی {propertyNameString} وارد شده قبلا در سایت ثبت نام شده است");
         }
 
+        public ActionResult ActiveUser(string id)
+        {
+            //کاربری که اکتیو کدش برابر  کدی که از سمت ایمیل اومده را پیدا کن اون کاربر رو میاره که یوزر ماست از جنس اینتیتی یوزر
+            var user = db.Users.SingleOrDefault(u => u.ActiveCode == id);
+
+            if(user == null)
+            {
+                return HttpNotFound();
+            }
+
+            user.IsActive = true;
+            user.ActiveCode = Guid.NewGuid().ToString();
+            db.SaveChanges();
+            ViewBag.UserName = user.UserName;
+            return View();
+        }
     }
 }
