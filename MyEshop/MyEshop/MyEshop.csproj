@@ -192,12 +192,13 @@
     <Content Include="Views\shared\_DefaultLayout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Slider.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\AboutUs.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\SuccessRegister.cshtml" />
     <Content Include="Views\ManageEmail\SendActivationEmail.cshtml" />
     <Content Include="Views\Account\ActiveUser.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\shared\_LoggedInUser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

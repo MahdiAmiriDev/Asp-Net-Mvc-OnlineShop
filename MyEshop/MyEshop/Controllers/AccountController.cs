@@ -39,11 +39,11 @@ namespace MyEshop.Controllers
                 {
                     if (ExistsEmail)
                     {
-                        ShowRegisterErrorMessage("Email","ایمیل");
+                        ShowModelStateErrorMessage("Email","ایمیل شما قبلا در سایت ثبت نام شده است");
                     }
                     if (ExistsUserName)
                     {
-                        ShowRegisterErrorMessage("UserName", "نام کاربری");
+                        ShowModelStateErrorMessage("UserName", "نام کاربری شما قبلا در سایت ثبت نام شده است");
                     }
                 }
                 else
@@ -70,14 +70,51 @@ namespace MyEshop.Controllers
             return View(register);
         }
 
+        [Route("Login")]
+        //[Route("/Account/Login")]
         public ActionResult Login()
         {
             return View();
         }
 
-        public void ShowRegisterErrorMessage(string properyName , string propertyNameString)
+        [HttpPost]
+        [Route("Login")]
+        public ActionResult Login( LogInViewModel login)
         {
-            ModelState.AddModelError(properyName , $"کاربر گرامی {propertyNameString} وارد شده قبلا در سایت ثبت نام شده است");
+            if (ModelState.IsValid)
+            {
+                string hashPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(login.Password,"MD5");
+                Users user = db.Users.SingleOrDefault(u => u.Emain == login.Email && u.Password == hashPassword);
+                if (user != null)
+                {
+                    if (!user.IsActive)
+                    {
+                        ShowModelStateErrorMessage("Email", "حساب کاربری شما فعال نشده است");
+                        return View();
+                    }
+
+                    FormsAuthentication.SetAuthCookie(user.UserName, login.RememberMe);
+                    return Redirect("/");
+
+                }
+                else
+                {
+                    ShowModelStateErrorMessage("Email", "کاربری با اطلاعات وارد شده یافت نشد");
+                }
+            }
+
+            return View();
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return Redirect("/");
+        }
+
+        public void ShowModelStateErrorMessage(string properyName , string MessageText)
+        {
+            ModelState.AddModelError(properyName ,MessageText);
         }
 
         public ActionResult ActiveUser(string id)
