@@ -18,3 +18,11 @@ D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\Utilities\obj\Deb
 D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\Utilities\obj\Debug\Utilities.csproj.CopyComplete
 D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\Utilities\obj\Debug\Utilities.dll
 D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\Utilities\obj\Debug\Utilities.pdb
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\Utilities\bin\Debug\Utilities.dll.config
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\Utilities\bin\Debug\DataLayer.dll
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\Utilities\bin\Debug\EntityFramework.dll
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\Utilities\bin\Debug\EntityFramework.SqlServer.dll
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\Utilities\bin\Debug\DataLayer.pdb
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\Utilities\bin\Debug\DataLayer.dll.config
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\Utilities\bin\Debug\EntityFramework.xml
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\Utilities\bin\Debug\EntityFramework.SqlServer.xml

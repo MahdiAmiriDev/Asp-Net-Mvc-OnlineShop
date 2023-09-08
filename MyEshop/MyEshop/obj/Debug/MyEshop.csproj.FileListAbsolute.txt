@@ -84,3 +84,4 @@ D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\MyEshop\obj\Debug
 D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\MyEshop\obj\Debug\MyEshop.pdb
 D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\MyEshop\bin\Utilities.dll
 D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\MyEshop\bin\Utilities.pdb
+D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\MyEshop\bin\Utilities.dll.config

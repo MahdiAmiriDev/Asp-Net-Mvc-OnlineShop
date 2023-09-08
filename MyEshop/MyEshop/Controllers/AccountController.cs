@@ -79,7 +79,7 @@ namespace MyEshop.Controllers
 
         [HttpPost]
         [Route("Login")]
-        public ActionResult Login( LogInViewModel login)
+        public ActionResult Login( LogInViewModel login , string ReturnUrl="/")
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +94,7 @@ namespace MyEshop.Controllers
                     }
 
                     FormsAuthentication.SetAuthCookie(user.UserName, login.RememberMe);
-                    return Redirect("/");
+                    return Redirect(ReturnUrl);
 
                 }
                 else
