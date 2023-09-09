@@ -28,7 +28,7 @@ namespace MyEshop.Controllers
         [HttpPost]
         [Route("Register")]
         [ValidateAntiForgeryToken]
-        public ActionResult Register (RegisterViewModel register)
+        public ActionResult Register(RegisterViewModel register)
         {
             if (ModelState.IsValid)
             {
@@ -39,7 +39,7 @@ namespace MyEshop.Controllers
                 {
                     if (ExistsEmail)
                     {
-                        ShowModelStateErrorMessage("Email","ایمیل شما قبلا در سایت ثبت نام شده است");
+                        ShowModelStateErrorMessage("Email", "ایمیل شما قبلا در سایت ثبت نام شده است");
                     }
                     if (ExistsUserName)
                     {
@@ -79,11 +79,11 @@ namespace MyEshop.Controllers
 
         [HttpPost]
         [Route("Login")]
-        public ActionResult Login( LogInViewModel login , string ReturnUrl="/")
+        public ActionResult Login(LogInViewModel login, string ReturnUrl = "/")
         {
             if (ModelState.IsValid)
             {
-                string hashPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(login.Password,"MD5");
+                string hashPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(login.Password, "MD5");
                 Users user = db.Users.SingleOrDefault(u => u.Emain == login.Email && u.Password == hashPassword);
                 if (user != null)
                 {
@@ -112,17 +112,12 @@ namespace MyEshop.Controllers
             return Redirect("/");
         }
 
-        public void ShowModelStateErrorMessage(string properyName , string MessageText)
-        {
-            ModelState.AddModelError(properyName ,MessageText);
-        }
-
         public ActionResult ActiveUser(string id)
         {
             //کاربری که اکتیو کدش برابر  کدی که از سمت ایمیل اومده را پیدا کن اون کاربر رو میاره که یوزر ماست از جنس اینتیتی یوزر
             var user = db.Users.SingleOrDefault(u => u.ActiveCode == id);
 
-            if(user == null)
+            if (user == null)
             {
                 return HttpNotFound();
             }
@@ -133,5 +128,76 @@ namespace MyEshop.Controllers
             ViewBag.UserName = user.UserName;
             return View();
         }
+
+        [Route("ForgotPassword")]
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [Route("ForgotPassword")]
+        [HttpPost]
+        public ActionResult ForgotPassword(ForgotPasswordViewModel forgotPassword)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = db.Users.SingleOrDefault(u => u.Emain == forgotPassword.Email);
+                if (user != null)
+                {
+                    if (user.IsActive)
+                    {
+                        string bodyEmail = PartialToStringClass.RenderPartialView("ManageEmail", "RecoveryPassword", user);
+                        SendEmail.Send(user.Emain, "بازیابی کلمه عبور", bodyEmail);
+                        return View("SuccesForgotPassword",user);  
+                    }
+                    else 
+                    {
+                        ShowModelStateErrorMessage("Email", "کاربر گرامی حساب کاربری شما فعال نیست");
+                    }
+                }
+                else
+                {
+                    ShowModelStateErrorMessage("Email", "کاربری با ایمیل وارد شده یافت نشد");
+                }
+            }
+            else
+            {
+                ShowModelStateErrorMessage("Email", "کار گرامی مقدار ایمیل الزامی است");
+            }
+
+
+            return View();
+        }
+        public ActionResult RecoveryPassword(string id)
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult RecoveryPassword(string id , RecoveryPasswordViewModel recoveryPassword)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = db.Users.SingleOrDefault(u => u.ActiveCode == id);
+
+                if(user == null)
+                {
+                    return HttpNotFound();
+                }
+                else
+                {
+                    user.Password = FormsAuthentication.HashPasswordForStoringInConfigFile(recoveryPassword.Password,"MD5");
+                    user.ActiveCode = Guid.NewGuid().ToString();
+                    db.SaveChanges();
+                    return Redirect("/Login?recovery=true");
+                }
+            }
+            return View();
+        }
+
+        public void ShowModelStateErrorMessage(string properyName, string MessageText)
+        {
+            ModelState.AddModelError(properyName, MessageText);
+        }
+
     }
 }

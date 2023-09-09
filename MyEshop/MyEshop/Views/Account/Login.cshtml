@@ -33,6 +33,19 @@
                 </div>
             }
         }
+
+        @if (Request.QueryString["recovery"] == "true")
+        {
+            <div class="alert alert-success">
+                <p>
+                    کاربر گرامی کلمه عبور شما با موفقیت تغییر کرد. 
+                </p>
+                <p>
+                    میتوانید از طریق فرم زیر وارد سایت شوید.
+                </p>
+            </div>
+        }
+
         @if (showLoginForm)
         {
             <hr />
@@ -62,7 +75,11 @@
                     </div>
                 </div>
             </div>
-
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <a href="/ForgotPassword">فراموشی رمز عبور</a>
+                </div>
+            </div>
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="ورود به سایت" class="btn btn-primary" />
