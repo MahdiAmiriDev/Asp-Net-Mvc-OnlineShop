@@ -72,6 +72,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DateConvertor\DateConvertor.cs" />
     <Compile Include="Email\SendEmail.cs" />
     <Compile Include="MyEshopRoleProvider\MyEshopRoleProvider.cs" />
     <Compile Include="PartialToStringClass.cs" />

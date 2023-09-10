@@ -1,18 +1,22 @@
 ﻿@model IEnumerable<DataLayer.Users>
+@using Utilities.DateConvertor;
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "مدیریت کاربران";
 }
 
-<h2>Index</h2>
+<h2>مدیریت کاربران</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+   <a class="btn btn-primary" href="@Url.Action("Create")">افزودن کاربر جدید</a>
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Roles.RoleTitle)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Emain)
@@ -21,16 +25,10 @@
             @Html.DisplayNameFor(model => model.Password)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ActiveCode)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.IsActive)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.RegisterDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Roles.RoleTitle)
         </th>
         <th></th>
     </tr>
@@ -41,27 +39,27 @@
             @Html.DisplayFor(modelItem => item.UserName)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Roles.RoleTitle)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Emain)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Password)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ActiveCode)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.IsActive)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RegisterDate)
-        </td>
+            @item.RegisterDate.ToShamsi()
+        </td> 
         <td>
-            @Html.DisplayFor(modelItem => item.Roles.RoleTitle)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.userID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.userID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.userID })
+            <a class="btn btn-warning btn-sm" href="/Admin/Users/Edit/@item.userID">
+                <i class="glyphicon glyphicon-edit"></i>
+            </a>
+            <a class="btn btn-danger btn-sm" href="@Url.Action("Delete",new {id=item.userID})">
+                <i class="glyphicon glyphicon-trash"></i>
+            </a>
         </td>
     </tr>
 }

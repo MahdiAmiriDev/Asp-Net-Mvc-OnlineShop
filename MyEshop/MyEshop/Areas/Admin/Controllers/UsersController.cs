@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DataLayer;
+using System.Web.Security;
 
 namespace MyEshop.Areas.Admin.Controllers
 {
@@ -53,6 +54,9 @@ namespace MyEshop.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                users.RegisterDate = DateTime.Now;
+                users.ActiveCode = Guid.NewGuid().ToString();
+                users.Password = FormsAuthentication.HashPasswordForStoringInConfigFile(users.Password, "MD5");
                 db.Users.Add(users);
                 db.SaveChanges();
                 return RedirectToAction("Index");
