@@ -66,6 +66,10 @@
       <DependentUpon>EshopModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="MetaDataClasses\RolesMetaData.cs" />
+    <Compile Include="Product_Groups.cs">
+      <DependentUpon>EshopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product_GroupsMetaData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles.cs">
       <DependentUpon>EshopModel.tt</DependentUpon>
