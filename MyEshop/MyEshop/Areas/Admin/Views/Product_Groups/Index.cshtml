@@ -41,6 +41,15 @@
             });
     }
 
+    function createNewSubGroup(parentId) {
+        $.get("/Admin/Product_Groups/Create?ParentId=" + parentId,
+            function (result) {
+                $("#myModal").modal();
+                $("#myModalLabel").html("افزودن زیر گروه جدید");
+                $("#myModalBody").html(result);
+            });
+    }
+
     function Edit(id) {
         $.get("/Admin/Product_Groups/Edit/" + id,
             function (res) {

@@ -13,7 +13,7 @@
 
     @foreach (var item in Model)
     {
-        <tr id="group_@item.GroupID">
+        <tr id="group_@(item.GroupID)">
             <td>
                 @Html.DisplayFor(modelItem => item.GroupTitle)
             </td>
@@ -23,13 +23,21 @@
                     <ul>
                         @foreach (var subGroup in item.Product_Groups1)
                         {
-                            <li>@subGroup.GroupTitle</li>
+                            <li id="group_@(subGroup.GroupID)">
+                                @subGroup.GroupTitle
+                                <a class="text-warning" onclick="Edit(@subGroup.GroupID)">
+                                    <i class="glyphicon glyphicon-edit"></i>
+                                </a>
+                                <a class="text-danger" onclick="Delete(@subGroup.GroupID)">
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                </a>
+                            </li>
                         }
                     </ul>
                 }
             </td>
             <td>
-                <a class="btn btn-primary btn-xs">
+                <a class="btn btn-primary btn-xs" onclick="createNewSubGroup(@item.GroupID)">
                     <i class="glyphicon glyphicon-plus"></i>
                 </a>
                 <a class="btn btn-warning btn-xs" onclick="Edit(@item.GroupID)">
