@@ -79,6 +79,7 @@
     <Compile Include="ImageResizer\ImageResizer.cs" />
     <Compile Include="MyEshopRoleProvider\MyEshopRoleProvider.cs" />
     <Compile Include="PartialToStringClass.cs" />
+    <Compile Include="PersianCulture\PersianCulture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

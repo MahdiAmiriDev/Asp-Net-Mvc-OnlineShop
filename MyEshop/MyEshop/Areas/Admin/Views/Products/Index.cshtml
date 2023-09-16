@@ -7,24 +7,21 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a class="btn btn-primary" href="@Url.Action("Create")"> افزودن محصول جدید</a>
 </p>
-<table class="table">
+<table class="table table-bordered">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.ProductTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShortDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Text)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ImageName)
+            گروه های محصول
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CreateDate)
@@ -32,32 +29,41 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShortDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Text)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreateDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img class="thumbnail" src="~/Images/ThumbNail/@item.ImageName" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @if (item.Product_Selected_Groups.Any())
+                {
+                    <ol>
+                        @foreach (var group in item.Product_Selected_Groups)
+                        {
+                            <li>
+                                @group.Product_Groups.GroupTitle
+                            </li>
+                        }
+                    </ol>
+                }
+            </td>
+            <td>
+                @item.CreateDate.ToString("dddd, dd MMMM yyyy")
+            </td>
+            <td>
+                <a class="btn btn-default btn-xs" href="#">ویژگی های محصول</a>
+                <a class="btn btn-info btn-xs" href="#">گالری تصاویر محصول</a>
+                <a class="btn btn-warning btn-xs" href="@Url.Action("Edit",new {id = item.ProductID })">ویرایش محصول</a>
+                <a class="btn btn-danger btn-xs" href="@Url.Action("Delete",new {id = item.ProductID })">حذف محصول</a>
+            </td>
+        </tr>
+    }
 
 </table>

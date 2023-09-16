@@ -1303,6 +1303,7 @@
     <Content Include="ckeditor\_samples\assets\output_for_flash.fla" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\ProductImages\NoImage.png" />
+    <Content Include="Images\ThumbNail\NoImage.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -1377,7 +1378,6 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\UserPanel\Models\" />
     <Folder Include="Areas\UserPanel\Views\Shared\" />
-    <Folder Include="Images\ThumbNail\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

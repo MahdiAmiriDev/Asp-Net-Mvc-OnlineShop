@@ -35,7 +35,8 @@ namespace DataLayer
         public int Price { get; set; }
         [Display(Name = "تصویر")]
         public string ImageName { get; set; }
-        [Display(Name = "تاریخ ایجاد")]
+        [Display(Name = "تاریخ ایجاد")] 
+        [DisplayFormat(DataFormatString ="{0:yyyy/MM/dd}")]
         public System.DateTime CreateDate { get; set; }
     }
 }
