@@ -26,3 +26,31 @@ D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\Utilities\bin\Deb
 D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\Utilities\bin\Debug\DataLayer.dll.config
 D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\Utilities\bin\Debug\EntityFramework.xml
 D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\Utilities\bin\Debug\EntityFramework.SqlServer.xml
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\Utilities.dll.config
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\Utilities.dll
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\Utilities.pdb
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\DataLayer.dll
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\EntityFramework.dll
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\EntityFramework.SqlServer.dll
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\System.Web.Helpers.dll
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\System.Web.Mvc.dll
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\System.Web.Razor.dll
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\System.Web.WebPages.dll
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\System.Web.WebPages.Razor.dll
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\DataLayer.pdb
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\DataLayer.dll.config
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\EntityFramework.xml
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\EntityFramework.SqlServer.xml
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\System.Web.Helpers.xml
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\System.Web.Mvc.xml
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\System.Web.Razor.xml
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\System.Web.WebPages.xml
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\bin\Debug\System.Web.WebPages.Razor.xml
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\obj\Debug\Utilities.csprojAssemblyReference.cache
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\obj\Debug\Utilities.csproj.CopyComplete
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\obj\Debug\Utilities.dll
+D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\Utilities\obj\Debug\Utilities.pdb

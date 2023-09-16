@@ -20,6 +20,7 @@ namespace DataLayer
         public Product_Groups()
         {
             this.Product_Groups1 = new HashSet<Product_Groups>();
+            this.Product_Selected_Groups = new HashSet<Product_Selected_Groups>();
         }
     
         public int GroupID { get; set; }
@@ -29,5 +30,7 @@ namespace DataLayer
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product_Groups> Product_Groups1 { get; set; }
         public virtual Product_Groups Product_Groups2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product_Selected_Groups> Product_Selected_Groups { get; set; }
     }
 }
