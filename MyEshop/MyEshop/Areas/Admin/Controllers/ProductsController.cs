@@ -111,6 +111,9 @@ namespace MyEshop.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.SelectedGroups = products.Product_Selected_Groups.ToList();
+            ViewBag.Groups = db.Product_Groups.ToList();
+            ViewBag.Tags = string.Join(",", products.Product_Tags.Select(x => x.Tag).ToList());
             return View(products);
         }
 
@@ -119,14 +122,61 @@ namespace MyEshop.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductID,ProductTitle,ShortDescription,Text,Price,ImageName,CreateDate")] Products products)
+        public ActionResult Edit([Bind(Include = "ProductID,ProductTitle,ShortDescription,Text,Price,ImageName,CreateDate")] Products products, List<int> selectedGroups, HttpPostedFileBase imageProduct, string tags)
         {
             if (ModelState.IsValid)
             {
+                if (imageProduct != null && imageProduct.IsImage())
+                {
+                    if (products.ImageName != "NoImage.png")
+                    {
+                        System.IO.File.Delete(Server.MapPath("/Images/ProductImages/" + products.ImageName));
+                        System.IO.File.Delete(Server.MapPath("/Images/ThumbNail/" + products.ImageName));
+                    }
+
+                    products.ImageName = Guid.NewGuid().ToString() + Path.GetExtension(imageProduct.FileName);
+                    imageProduct.SaveAs(Server.MapPath("/Images/ProductImages/" + products.ImageName));
+                    ImageResizer img = new ImageResizer();
+                    img.Resize(Server.MapPath("/Images/ProductImages/" + products.ImageName),
+                        Server.MapPath("/Images/ThumbNail/" + products.ImageName));
+                }
+
                 db.Entry(products).State = EntityState.Modified;
+
+                db.Product_Tags.Where(x => x.ProductID == products.ProductID).ToList()
+                    .ForEach(x => db.Product_Tags.Remove(x));
+
+                if (!string.IsNullOrEmpty(tags))
+                {
+                    string[] tag = tags.Split(',');
+                    foreach (var t in tag)
+                    {
+                        db.Product_Tags.Add(new Product_Tags()
+                        {
+                            ProductID = products.ProductID,
+                            Tag = t.Trim()
+                        });
+                    }
+                }
+
+                db.Product_Selected_Groups.Where(x => x.ProductID == products.ProductID).ToList()
+                    .ForEach(x => db.Product_Selected_Groups.Remove(x));
+
+                foreach (var selectedGroup in selectedGroups)
+                {
+                    db.Product_Selected_Groups.Add(new Product_Selected_Groups()
+                    {
+                        ProductID = products.ProductID,
+                        GroupID = selectedGroup
+                    });
+                }
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.SelectedGroups = selectedGroups;
+            ViewBag.Groups = db.Product_Groups.ToList();
+            ViewBag.Tags = tags;
             return View(products);
         }
 
