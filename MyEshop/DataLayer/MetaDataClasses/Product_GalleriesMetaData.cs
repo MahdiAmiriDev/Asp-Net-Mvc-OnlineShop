@@ -19,5 +19,8 @@ namespace DataLayer
         public int ProductID { get; set; }
         [Display(Name ="تصویر")]
         public string ImageName { get; set; }
+        [Display(Name = "عنوان تصاویر")]
+        [Required(ErrorMessage ="عنوان تصاویر اجباری است")]
+        public string Title { get; set; }
     }
 }

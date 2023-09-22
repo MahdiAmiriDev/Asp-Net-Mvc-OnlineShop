@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\asp .net online shop project\Asp-Net-Mvc-OnlineShop\MyEshop\DataLayer\EshopModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\aspnetonlineshopproject\AspNetMvcOnlineShop\MyEshop\DataLayer\EshopModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
