@@ -1,5 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="MyEshop_DataBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Features">
+    <Key>
+      <PropertyRef Name="FeatureID" />
+    </Key>
+    <Property Name="FeatureID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FeatureTitle" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product_Features">
+    <Key>
+      <PropertyRef Name="PF_ID" />
+    </Key>
+    <Property Name="PF_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="FeatureID" Type="int" Nullable="false" />
+    <Property Name="Value" Type="nchar" MaxLength="10" />
+  </EntityType>
   <EntityType Name="Product_Galleries">
     <Key>
       <PropertyRef Name="GalleryID" />
@@ -126,6 +142,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ProductFeatures_Features">
+    <End Role="Features" Type="Self.Features" Multiplicity="1" />
+    <End Role="Product_Features" Type="Self.Product_Features" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Features">
+        <PropertyRef Name="FeatureID" />
+      </Principal>
+      <Dependent Role="Product_Features">
+        <PropertyRef Name="FeatureID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Users_Roles">
     <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
     <End Role="Users" Type="Self.Users" Multiplicity="*" />
@@ -139,6 +167,8 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="MyEshop_DataBaseModelStoreContainer">
+    <EntitySet Name="Features" EntityType="Self.Features" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Features" EntityType="Self.Product_Features" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product_Galleries" EntityType="Self.Product_Galleries" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product_Groups" EntityType="Self.Product_Groups" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product_Selected_Groups" EntityType="Self.Product_Selected_Groups" Schema="dbo" store:Type="Tables" />
@@ -165,6 +195,10 @@
     <AssociationSet Name="FK_Product_Tags_Products" Association="Self.FK_Product_Tags_Products">
       <End Role="Products" EntitySet="Products" />
       <End Role="Product_Tags" EntitySet="Product_Tags" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductFeatures_Features" Association="Self.FK_ProductFeatures_Features">
+      <End Role="Features" EntitySet="Features" />
+      <End Role="Product_Features" EntitySet="Product_Features" />
     </AssociationSet>
     <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
       <End Role="Roles" EntitySet="Roles" />

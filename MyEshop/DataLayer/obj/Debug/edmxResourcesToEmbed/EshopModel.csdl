@@ -41,6 +41,12 @@
       <End Role="Products" EntitySet="Products" />
       <End Role="Product_Tags" EntitySet="Product_Tags" />
     </AssociationSet>
+    <EntitySet Name="Features" EntityType="MyEshop_DataBaseModel.Features" />
+    <EntitySet Name="Product_Features" EntityType="MyEshop_DataBaseModel.Product_Features" />
+    <AssociationSet Name="FK_ProductFeatures_Features" Association="MyEshop_DataBaseModel.FK_ProductFeatures_Features">
+      <End Role="Features" EntitySet="Features" />
+      <End Role="Product_Features" EntitySet="Product_Features" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Users">
     <Key>
@@ -180,6 +186,36 @@
       </Principal>
       <Dependent Role="Product_Tags">
         <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Features">
+    <Key>
+      <PropertyRef Name="FeatureID" />
+    </Key>
+    <Property Name="FeatureID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FeatureTitle" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Product_Features" Relationship="MyEshop_DataBaseModel.FK_ProductFeatures_Features" FromRole="Features" ToRole="Product_Features" />
+  </EntityType>
+  <EntityType Name="Product_Features">
+    <Key>
+      <PropertyRef Name="PF_ID" />
+    </Key>
+    <Property Name="PF_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="FeatureID" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Features" Relationship="MyEshop_DataBaseModel.FK_ProductFeatures_Features" FromRole="Product_Features" ToRole="Features" />
+  </EntityType>
+  <Association Name="FK_ProductFeatures_Features">
+    <End Type="MyEshop_DataBaseModel.Features" Role="Features" Multiplicity="1" />
+    <End Type="MyEshop_DataBaseModel.Product_Features" Role="Product_Features" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Features">
+        <PropertyRef Name="FeatureID" />
+      </Principal>
+      <Dependent Role="Product_Features">
+        <PropertyRef Name="FeatureID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
