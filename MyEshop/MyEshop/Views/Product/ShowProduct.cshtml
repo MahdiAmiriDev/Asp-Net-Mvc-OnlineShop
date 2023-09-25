@@ -1,0 +1,194 @@
+﻿@model DataLayer.Products
+@using DataLayer.ViewModels
+@{
+    ViewBag.Title = Model.ProductTitle;
+}
+
+<div class="col-md-9 col-sm-8 left-side-content">
+    <section class="single-page">
+        <header><h3> @Model.ProductTitle </h3> </header>
+        <article>
+            <!-- Detail -->
+            <div class="col-md-8 col-sm-12 col-xs-12 pull-left detail-product">
+                <div>
+                    <span> قیمت : @Model.Price.ToString("#,0") تومان </span>
+                    <a href="" class="add-to-card-link border-radius"> افزودن به سبد خرید </a>
+                </div>
+                <p>
+                    @Model.ShortDescription
+                </p>
+            </div>
+            <!-- End Detail -->
+            <!-- Gallery -->
+            <div class="col-md-4 col-sm-12 col-xs-12 pull-right product-gallery">
+                <div class="large-image border-radius">
+                    <img class="border-radius" src="~/Images/ProductImages/@Model.ImageName">
+                </div>
+                <div class="thumbnails-image">
+                    @if (Model.Product_Galleries.Any())
+                    {
+                    <div class="row">
+                        @foreach (var item in Model.Product_Galleries)
+                        {
+                            <div class="col-md-3 col-sm-3 col-xs-4 border-radius"><img alt="@item.Title" class="border-radius" src="~/Images/ProductImages/@item.ImageName"></div>
+                        }
+                        <div class="clearfix"></div>
+                    </div>
+                    }
+                </div>
+            </div>
+            <!-- End Gallery -->
+            <div class="clearfix"></div>
+        </article>
+    </section>
+
+
+    <div class="tabs-product margin-top-25">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#main-content"> توضیحات کامل </a></li>
+            <li><a data-toggle="tab" href="#properties"> ویژگی ها </a></li>
+            <li><a data-toggle="tab" href="#comments"> نظرات کاربران </a></li>
+        </ul>
+
+        <div class="tab-content ">
+
+            <!-- description -->
+            <div id="main-content" class="tab-pane fade in active">
+                @Html.Raw(Model.Text)
+            </div>
+            <!-- End description -->
+            <!-- Chart -->
+            <div id="properties" class="tab-pane fade">
+                <h3> ویژگی های محصول : </h3>
+
+                @if (ViewBag.ProductFeatures != null)
+                {
+                    List<ShowProductFearureViewModel> list = ViewBag.ProductFeatures;
+
+                    <ul>
+                        @foreach (var item in list)
+                        {
+                            <li> @item.FeatureTitle : @string.Join(" , ", item.Values)</li>
+                        }
+                    </ul>
+                }
+
+            </div>
+            <!-- End Chart -->
+            <!-- Comment -->
+            <div id="comments" class="tab-pane fade">
+                <div class="comment-layer">
+                    <form action="" method="post">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <input class="form-control" placeholder="نام و نام خانوادگی" type="text">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="ایمیل" type="text">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="وب سایت" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <textarea class="form-control" placeholder="متن دیدگاه"></textarea>
+                            <input class="btn btn-primary" value="ثبت دیدگاه ارزشمند شما" type="submit">
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
+                    <ul class="comment-list">
+                        <li>
+                            <a href="" class="reply-button">پاسخ</a>
+
+                            <img src="img/avatar.jpg" width="65">
+                            <div>
+                                <h5>ارسال شده از : میترا رحیمی در تاریخ : 15/5/95 </h5>
+                                <p>
+                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیستری را برای طراحان رایانه ای و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+                                </p>
+                            </div>
+                            <div class="clearfix"></div>
+                            <ul>
+                                <li>
+                                    <a href="" class="reply-button">پاسخ</a>
+
+                                    <img src="img/avatar.jpg" width="65">
+                                    <div>
+                                        <h5>ارسال شده از : میترا رحیمی در تاریخ : 15/5/95 </h5>
+                                        <p>
+                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیستری را برای طراحان رایانه ای و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+                                        </p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </li>
+                                <li>
+                                    <a href="" class="reply-button">پاسخ</a>
+                                    <img src="img/avatar.jpg" width="65">
+                                    <div>
+                                        <h5>ارسال شده از : میترا رحیمی در تاریخ : 15/5/95 </h5>
+                                        <p>
+                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیستری را برای طراحان رایانه ای و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+                                        </p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </li>
+                                <li>
+                                    <a href="" class="reply-button">پاسخ</a>
+                                    <img src="img/avatar.jpg" width="65">
+                                    <div>
+                                        <h5>ارسال شده از : میترا رحیمی در تاریخ : 15/5/95 </h5>
+                                        <p>
+                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیستری را برای طراحان رایانه ای و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+                                        </p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li>
+                            <a href="" class="reply-button">پاسخ</a>
+                            <img src="img/avatar.jpg" width="65">
+                            <div>
+                                <h5>ارسال شده از : میترا رحیمی در تاریخ : 15/5/95 </h5>
+                                <p>
+                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیستری را برای طراحان رایانه ای و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+                                </p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+                        <li>
+                            <a href="" class="reply-button">پاسخ</a>
+                            <img src="img/avatar.jpg" width="65">
+                            <div>
+                                <h5>ارسال شده از : میترا رحیمی در تاریخ : 15/5/95 </h5>
+                                <p>
+                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیستری را برای طراحان رایانه ای و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+                                </p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End Comment -->
+
+
+
+        </div>
+    </div>
+
+    <section class="border-radius tags-layer">
+        @foreach (var item in Model.Product_Tags)
+        {
+            <a href="">@item.Tag</a>
+        }
+    </section>
+
+
+</div>
+<div class="clearfix"></div>
+
+        </div>
+

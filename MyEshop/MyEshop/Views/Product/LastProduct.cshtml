@@ -1,0 +1,15 @@
+﻿@model IEnumerable<DataLayer.Products>
+
+<section class="last-products">
+    <header><h3>جدید ترین محصولات</h3><a href="">آرشیو</a></header>
+    <article>
+
+        @foreach (var item in Model)
+        {
+            @Html.Partial("_Product",item)
+        }
+
+
+        <div class="clearfix"></div>
+    </article>
+</section>

@@ -47,6 +47,10 @@
       <End Role="Features" EntitySet="Features" />
       <End Role="Product_Features" EntitySet="Product_Features" />
     </AssociationSet>
+    <AssociationSet Name="FK_ProductFeatures_Features1" Association="MyEshop_DataBaseModel.FK_ProductFeatures_Features1">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Product_Features" EntitySet="Product_Features" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Users">
     <Key>
@@ -140,6 +144,7 @@
     <NavigationProperty Name="Product_Galleries" Relationship="MyEshop_DataBaseModel.FK_Product_Galleries_Products" FromRole="Products" ToRole="Product_Galleries" />
     <NavigationProperty Name="Product_Selected_Groups" Relationship="MyEshop_DataBaseModel.FK_Product_Selected_Groups_Products" FromRole="Products" ToRole="Product_Selected_Groups" />
     <NavigationProperty Name="Product_Tags" Relationship="MyEshop_DataBaseModel.FK_Product_Tags_Products" FromRole="Products" ToRole="Product_Tags" />
+    <NavigationProperty Name="Product_Features" Relationship="MyEshop_DataBaseModel.FK_ProductFeatures_Features1" FromRole="Products" ToRole="Product_Features" />
   </EntityType>
   <Association Name="FK_Product_Galleries_Products">
     <End Type="MyEshop_DataBaseModel.Products" Role="Products" Multiplicity="1" />
@@ -206,6 +211,7 @@
     <Property Name="FeatureID" Type="Int32" Nullable="false" />
     <Property Name="Value" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="Features" Relationship="MyEshop_DataBaseModel.FK_ProductFeatures_Features" FromRole="Product_Features" ToRole="Features" />
+    <NavigationProperty Name="Products" Relationship="MyEshop_DataBaseModel.FK_ProductFeatures_Features1" FromRole="Product_Features" ToRole="Products" />
   </EntityType>
   <Association Name="FK_ProductFeatures_Features">
     <End Type="MyEshop_DataBaseModel.Features" Role="Features" Multiplicity="1" />
@@ -216,6 +222,18 @@
       </Principal>
       <Dependent Role="Product_Features">
         <PropertyRef Name="FeatureID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductFeatures_Features1">
+    <End Type="MyEshop_DataBaseModel.Products" Role="Products" Multiplicity="1" />
+    <End Type="MyEshop_DataBaseModel.Product_Features" Role="Product_Features" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Product_Features">
+        <PropertyRef Name="ProductID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

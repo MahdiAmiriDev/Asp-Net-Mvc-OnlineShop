@@ -124,6 +124,7 @@
     </Compile>
     <Compile Include="MetaDataClasses\UsersMetaData.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
+    <Compile Include="ViewModels\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="EshopModel.edmx">

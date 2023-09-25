@@ -107,6 +107,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Content\css\bootstrap-rtl.css" />
+    <Content Include="Areas\Admin\Content\css\bootstrap.css" />
+    <Content Include="Areas\Admin\Content\css\bootstrap.min.css" />
+    <Content Include="Areas\Admin\Content\css\plugins\dataTables\dataTables.bootstrap.css" />
+    <Content Include="Areas\Admin\Content\css\plugins\morris\morris-0.4.3.min.css" />
+    <Content Include="Areas\Admin\Content\css\plugins\social-buttons\social-buttons.css" />
+    <Content Include="Areas\Admin\Content\css\plugins\timeline\timeline.css" />
+    <Content Include="Areas\Admin\Content\css\sb-admin.css" />
+    <Content Include="Areas\Admin\Content\font-awesome\css\font-awesome.css" />
+    <Content Include="Areas\Admin\Content\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Areas\Admin\Content\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Admin\Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\Admin\Content\js\bootstrap.js" />
+    <Content Include="Areas\Admin\Content\js\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Content\js\demo\dashboard-demo.js" />
+    <Content Include="Areas\Admin\Content\js\demo\flot-demo.js" />
+    <Content Include="Areas\Admin\Content\js\demo\morris-demo.js" />
+    <Content Include="Areas\Admin\Content\js\jquery-1.10.2.js" />
+    <Content Include="Areas\Admin\Content\js\plugins\dataTables\dataTables.bootstrap.js" />
+    <Content Include="Areas\Admin\Content\js\plugins\dataTables\jquery.dataTables.js" />
+    <Content Include="Areas\Admin\Content\js\plugins\flot\excanvas.min.js" />
+    <Content Include="Areas\Admin\Content\js\plugins\flot\jquery.flot.js" />
+    <Content Include="Areas\Admin\Content\js\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="Areas\Admin\Content\js\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="Areas\Admin\Content\js\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Areas\Admin\Content\js\plugins\metisMenu\jquery.metisMenu.js" />
+    <Content Include="Areas\Admin\Content\js\plugins\morris\morris.js" />
+    <Content Include="Areas\Admin\Content\js\plugins\morris\raphael-2.1.0.min.js" />
+    <Content Include="Areas\Admin\Content\js\sb-admin.js" />
     <Content Include="ckeditor\adapters\jquery.js" />
     <Content Include="ckeditor\build-config.js" />
     <Content Include="ckeditor\CHANGES.html" />
@@ -1308,6 +1337,41 @@
     <Content Include="Areas\Admin\Views\Features\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Features\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Products\ProductsFeaturs.cshtml" />
+    <Content Include="Areas\Admin\Content\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Content\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Admin\Content\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Admin\Content\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\core.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\fixed-width.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\font-awesome.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\icons.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\larger.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\list.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\mixins.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\path.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\spinning.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\stacked.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\less\variables.less" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_core.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_icons.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_larger.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_list.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_mixins.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_path.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_spinning.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_stacked.scss" />
+    <Content Include="Areas\Admin\Content\font-awesome\scss\_variables.scss" />
+    <Content Include="Areas\Admin\Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Admin\Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\Admin\Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Admin\Views\Shared\_DefaultAdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\ProductImages\NoImage.png" />
     <Content Include="Images\ThumbNail\NoImage.png" />
@@ -1329,6 +1393,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\FeaturesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\Product_GroupsController.cs" />
     <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
@@ -1343,6 +1408,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MoreLinq\MoreEnumerable.DistinctBy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1374,6 +1440,9 @@
     <Content Include="Views\Account\SuccesForgotPassword.cshtml" />
     <Content Include="Views\Account\RecoveryPassword.cshtml" />
     <Content Include="Views\Product\ShowGroups.cshtml" />
+    <Content Include="Views\Product\LastProduct.cshtml" />
+    <Content Include="Views\shared\_Product.cshtml" />
+    <Content Include="Views\Product\ShowProduct.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

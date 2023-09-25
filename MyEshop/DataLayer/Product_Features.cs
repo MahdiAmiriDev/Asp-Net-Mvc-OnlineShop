@@ -22,5 +22,6 @@ namespace DataLayer
         public string Value { get; set; }
     
         public virtual Features Features { get; set; }
+        public virtual Products Products { get; set; }
     }
 }
