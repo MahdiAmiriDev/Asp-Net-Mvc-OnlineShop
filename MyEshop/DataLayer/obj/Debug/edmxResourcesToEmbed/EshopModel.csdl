@@ -51,6 +51,15 @@
       <End Role="Products" EntitySet="Products" />
       <End Role="Product_Features" EntitySet="Product_Features" />
     </AssociationSet>
+    <EntitySet Name="Product_Comments" EntityType="MyEshop_DataBaseModel.Product_Comments" />
+    <AssociationSet Name="FK_Product_Comments_Product_Comments" Association="MyEshop_DataBaseModel.FK_Product_Comments_Product_Comments">
+      <End Role="Product_Comments" EntitySet="Product_Comments" />
+      <End Role="Product_Comments1" EntitySet="Product_Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Comments_Products" Association="MyEshop_DataBaseModel.FK_Product_Comments_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Product_Comments" EntitySet="Product_Comments" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Users">
     <Key>
@@ -145,6 +154,7 @@
     <NavigationProperty Name="Product_Selected_Groups" Relationship="MyEshop_DataBaseModel.FK_Product_Selected_Groups_Products" FromRole="Products" ToRole="Product_Selected_Groups" />
     <NavigationProperty Name="Product_Tags" Relationship="MyEshop_DataBaseModel.FK_Product_Tags_Products" FromRole="Products" ToRole="Product_Tags" />
     <NavigationProperty Name="Product_Features" Relationship="MyEshop_DataBaseModel.FK_ProductFeatures_Features1" FromRole="Products" ToRole="Product_Features" />
+    <NavigationProperty Name="Product_Comments" Relationship="MyEshop_DataBaseModel.FK_Product_Comments_Products" FromRole="Products" ToRole="Product_Comments" />
   </EntityType>
   <Association Name="FK_Product_Galleries_Products">
     <End Type="MyEshop_DataBaseModel.Products" Role="Products" Multiplicity="1" />
@@ -233,6 +243,46 @@
         <PropertyRef Name="ProductID" />
       </Principal>
       <Dependent Role="Product_Features">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Product_Comments">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="WebSite" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" Nullable="false" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ParentID" Type="Int32" />
+    <NavigationProperty Name="Product_Comments1" Relationship="MyEshop_DataBaseModel.FK_Product_Comments_Product_Comments" FromRole="Product_Comments" ToRole="Product_Comments1" />
+    <NavigationProperty Name="Product_Comments2" Relationship="MyEshop_DataBaseModel.FK_Product_Comments_Product_Comments" FromRole="Product_Comments1" ToRole="Product_Comments" />
+    <NavigationProperty Name="Products" Relationship="MyEshop_DataBaseModel.FK_Product_Comments_Products" FromRole="Product_Comments" ToRole="Products" />
+  </EntityType>
+  <Association Name="FK_Product_Comments_Product_Comments">
+    <End Type="MyEshop_DataBaseModel.Product_Comments" Role="Product_Comments" Multiplicity="0..1" />
+    <End Type="MyEshop_DataBaseModel.Product_Comments" Role="Product_Comments1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Comments">
+        <PropertyRef Name="CommentID" />
+      </Principal>
+      <Dependent Role="Product_Comments1">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Comments_Products">
+    <End Type="MyEshop_DataBaseModel.Products" Role="Products" Multiplicity="1" />
+    <End Type="MyEshop_DataBaseModel.Product_Comments" Role="Product_Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Product_Comments">
         <PropertyRef Name="ProductID" />
       </Dependent>
     </ReferentialConstraint>

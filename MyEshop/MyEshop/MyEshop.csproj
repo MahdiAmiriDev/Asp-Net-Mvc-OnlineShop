@@ -1443,6 +1443,8 @@
     <Content Include="Views\Product\LastProduct.cshtml" />
     <Content Include="Views\shared\_Product.cshtml" />
     <Content Include="Views\Product\ShowProduct.cshtml" />
+    <Content Include="Views\Product\ShowComments.cshtml" />
+    <Content Include="Views\Product\CreateComment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

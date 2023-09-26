@@ -95,6 +95,10 @@
       <DependentUpon>EshopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MetaDataClasses\ProductsMetaData.cs" />
+    <Compile Include="Product_Comments.cs">
+      <DependentUpon>EshopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product_CommentsMetaData.cs" />
     <Compile Include="Product_Features.cs">
       <DependentUpon>EshopModel.tt</DependentUpon>
     </Compile>
