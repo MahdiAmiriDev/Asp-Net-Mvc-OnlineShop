@@ -7,6 +7,7 @@
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(x => x.ProductID)
+    @Html.HiddenFor(x => x.ParentID)
     <div class="col-md-5">
         <div class="form-group">
             @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "نام خود را وارد کنید" })

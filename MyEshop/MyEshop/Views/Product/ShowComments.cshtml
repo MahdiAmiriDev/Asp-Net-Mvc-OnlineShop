@@ -3,7 +3,7 @@
 @foreach (var item in Model.Where(c => c.ParentID == null))
 {
 <li>
-    <a href="" class="reply-button">پاسخ</a>
+    <a onclick="ReplyComment(@item.CommentID)" class="reply-button">پاسخ</a>
 
     <img src="~/Content/img/avatar.jpg" width="65">
     <div>
@@ -19,7 +19,7 @@
             @foreach (var sub in Model.Where(x => x.ParentID == item.CommentID))
             {
                 <li>
-                    <a href="" class="reply-button">پاسخ</a>
+                    @*<a href="" class="reply-button">پاسخ</a>*@
 
                     <img src="~/Content/img/avatar.jpg" width="65">
                     <div>
