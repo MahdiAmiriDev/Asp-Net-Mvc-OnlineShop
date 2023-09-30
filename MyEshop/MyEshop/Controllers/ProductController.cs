@@ -72,6 +72,51 @@ namespace MyEshop.Controllers
 
             return PartialView(productComment);
         }
+
+        [Route("Archive")]
+        public ActionResult ArchiveProduct(List<int> selectedGroups, int pageId = 1, string title = "", int minPrice = 0, int maxPrice = 0)
+        {
+            ViewBag.Groups = db.Product_Groups.ToList();
+            ViewBag.ProducTitle = title;
+            ViewBag.minPrice = minPrice;
+            ViewBag.maxPrice = maxPrice;
+            ViewBag.selectGroup = selectedGroups;
+            ViewBag.pageId = pageId;
+
+            List<Products> productsList = new List<Products>();
+
+            if (selectedGroups != null && selectedGroups.Any())
+            {
+                foreach (var groupId in selectedGroups)
+                {
+                    productsList.AddRange(db.Product_Selected_Groups.Where(g => g.GroupID == groupId).Select(x => x.Products).ToList());
+                }
+                productsList = productsList.Distinct().ToList();
+            }
+            else
+            {
+                productsList.AddRange(db.Products.ToList());
+            }
+
+            if (!string.IsNullOrEmpty(title))
+            {
+                productsList = productsList.Where(x => x.ProductTitle.Contains(title)).ToList();
+            }
+            if (minPrice > 0)
+            {
+                productsList = productsList.Where(p => p.Price >= minPrice).ToList();
+            }
+            if (maxPrice > 0)
+            {
+                productsList = productsList.Where(p => p.Price <= maxPrice).ToList();
+            }
+
+            int take = 9;
+            int skip = (pageId - 1) * take;
+            ViewBag.PageCount = productsList.Count() / take;
+
+            return View(productsList.OrderByDescending(p => p.CreateDate).Skip(skip).Take(take).ToList());
+        }
     }
     
 }

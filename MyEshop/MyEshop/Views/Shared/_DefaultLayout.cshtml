@@ -50,7 +50,7 @@
     <header class="header-site">
         <div class="container">
             <div class="col-md-7 col-sm-7 logo-layer">
-                <a href="" class="logo"><img src="/Content/img/logo.png"></a>
+                <a href="/" class="logo"><img src="/Content/img/logo.png"></a>
                 <h1>فروشگاه <span>آنلایــــــن</span> </h1>
                 <h2>آموزشگاه برنامه نویســـان</h2>
             </div>
@@ -67,13 +67,8 @@
         <div class="container">
             <span class="responsive-list"><i class="fa fa-th-list"></i></span>
             <ul>
-                <li><a href=""> منوی شماره یک </a></li>
-                <li><a href=""> منوی شماره یک </a></li>
-                <li><a href=""> منوی شماره یک </a></li>
-                <li><a href=""> منوی شماره یک </a></li>
-                <li><a href=""> منوی شماره یک </a></li>
-                <li><a href=""> منوی شماره یک </a></li>
-                <li><a href=""> منوی شماره یک </a></li>
+                <li><a href="/"> صفحه ی اصلی </a></li>
+                <li><a href="/Archive"> آرشیو محصولات </a></li>
             </ul>
 
             <!-- Search -->
@@ -95,6 +90,7 @@
 
     <div class="container margin-top-25">
         <aside class="col-md-3 col-sm-4 right-side-content">
+            @RenderSection("Filters",false)
             <!-- Basket -->
             <section class="border-radius basket-side">
                 <header><h3> سبد خرید شما  </h3></header>
