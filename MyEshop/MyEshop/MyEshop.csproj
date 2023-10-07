@@ -1405,6 +1405,8 @@
     <Compile Include="Controllers\ManageEmailController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\ShopCartController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1448,6 +1450,7 @@
     <Content Include="Views\Product\CreateComment.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Product\ArchiveProduct.cshtml" />
+    <Content Include="Views\ShopCart\ShowCart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
