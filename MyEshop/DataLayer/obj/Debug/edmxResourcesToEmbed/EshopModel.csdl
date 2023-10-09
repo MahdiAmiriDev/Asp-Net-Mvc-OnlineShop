@@ -60,6 +60,20 @@
       <End Role="Products" EntitySet="Products" />
       <End Role="Product_Comments" EntitySet="Product_Comments" />
     </AssociationSet>
+    <EntitySet Name="OrderDetails" EntityType="MyEshop_DataBaseModel.OrderDetails" />
+    <EntitySet Name="Orders" EntityType="MyEshop_DataBaseModel.Orders" />
+    <AssociationSet Name="FK_OrderDetails_Orders" Association="MyEshop_DataBaseModel.FK_OrderDetails_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetails_Products" Association="MyEshop_DataBaseModel.FK_OrderDetails_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Users" Association="MyEshop_DataBaseModel.FK_Orders_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Users">
     <Key>
@@ -74,6 +88,7 @@
     <Property Name="IsActive" Type="Boolean" Nullable="false" />
     <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Roles" Relationship="MyEshop_DataBaseModel.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
+    <NavigationProperty Name="Orders" Relationship="MyEshop_DataBaseModel.FK_Orders_Users" FromRole="Users" ToRole="Orders" />
   </EntityType>
   <Association Name="FK_Users_Roles">
     <End Type="MyEshop_DataBaseModel.Roles" Role="Roles" Multiplicity="1" />
@@ -155,6 +170,7 @@
     <NavigationProperty Name="Product_Tags" Relationship="MyEshop_DataBaseModel.FK_Product_Tags_Products" FromRole="Products" ToRole="Product_Tags" />
     <NavigationProperty Name="Product_Features" Relationship="MyEshop_DataBaseModel.FK_ProductFeatures_Features1" FromRole="Products" ToRole="Product_Features" />
     <NavigationProperty Name="Product_Comments" Relationship="MyEshop_DataBaseModel.FK_Product_Comments_Products" FromRole="Products" ToRole="Product_Comments" />
+    <NavigationProperty Name="OrderDetails" Relationship="MyEshop_DataBaseModel.FK_OrderDetails_Products" FromRole="Products" ToRole="OrderDetails" />
   </EntityType>
   <Association Name="FK_Product_Galleries_Products">
     <End Type="MyEshop_DataBaseModel.Products" Role="Products" Multiplicity="1" />
@@ -284,6 +300,65 @@
       </Principal>
       <Dependent Role="Product_Comments">
         <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="OrderDetails">
+    <Key>
+      <PropertyRef Name="DetailID" />
+    </Key>
+    <Property Name="DetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="MyEshop_DataBaseModel.FK_OrderDetails_Orders" FromRole="OrderDetails" ToRole="Orders" />
+    <NavigationProperty Name="Products" Relationship="MyEshop_DataBaseModel.FK_OrderDetails_Products" FromRole="OrderDetails" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsFinaly" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="OrderDetails" Relationship="MyEshop_DataBaseModel.FK_OrderDetails_Orders" FromRole="Orders" ToRole="OrderDetails" />
+    <NavigationProperty Name="Users" Relationship="MyEshop_DataBaseModel.FK_Orders_Users" FromRole="Orders" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK_OrderDetails_Orders">
+    <End Type="MyEshop_DataBaseModel.Orders" Role="Orders" Multiplicity="1" />
+    <End Type="MyEshop_DataBaseModel.OrderDetails" Role="OrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetails_Products">
+    <End Type="MyEshop_DataBaseModel.Products" Role="Products" Multiplicity="1" />
+    <End Type="MyEshop_DataBaseModel.OrderDetails" Role="OrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Users">
+    <End Type="MyEshop_DataBaseModel.Users" Role="Users" Multiplicity="1" />
+    <End Type="MyEshop_DataBaseModel.Orders" Role="Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="UserID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

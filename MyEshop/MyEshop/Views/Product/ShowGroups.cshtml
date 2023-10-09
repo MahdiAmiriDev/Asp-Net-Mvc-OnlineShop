@@ -13,7 +13,7 @@
                 <ul class="child-category-menu">
                     @foreach (var subGroup in Model.Where(x => x.ParentID == group.GroupID))
                     {
-                        <li><h2><a href="/Archive?selectedGroups=@subGroup.GroupID"> @subGroup.GroupTitle </a> <span>(0)</span></h2></li>
+                        <li><h2><a href="/Archive?selectedGroups=@subGroup.GroupID"> @subGroup.GroupTitle </a> <span>(@subGroup.Product_Selected_Groups.Count)</span></h2></li>
                     }
                 </ul>
                 }

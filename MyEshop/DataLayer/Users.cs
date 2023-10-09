@@ -16,6 +16,12 @@ namespace DataLayer
     [MetadataType(typeof(UsersMetaData))]
     public partial class Users
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Users()
+        {
+            this.Orders = new HashSet<Orders>();
+        }
+    
         public int userID { get; set; }
         public int RoleID { get; set; }
         public string UserName { get; set; }
@@ -26,5 +32,7 @@ namespace DataLayer
         public System.DateTime RegisterDate { get; set; }
     
         public virtual Roles Roles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Orders> Orders { get; set; }
     }
 }

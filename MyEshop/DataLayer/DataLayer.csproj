@@ -91,6 +91,14 @@
     </Compile>
     <Compile Include="FeaturesMetaData.cs" />
     <Compile Include="MetaDataClasses\RolesMetaData.cs" />
+    <Compile Include="OrderDetails.cs">
+      <DependentUpon>EshopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetailsMetaData.cs" />
+    <Compile Include="Orders.cs">
+      <DependentUpon>EshopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersMetaData.cs" />
     <Compile Include="Products.cs">
       <DependentUpon>EshopModel.tt</DependentUpon>
     </Compile>

@@ -1451,6 +1451,8 @@
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Product\ArchiveProduct.cshtml" />
     <Content Include="Views\ShopCart\ShowCart.cshtml" />
+    <Content Include="Views\ShopCart\Index.cshtml" />
+    <Content Include="Views\ShopCart\Order.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

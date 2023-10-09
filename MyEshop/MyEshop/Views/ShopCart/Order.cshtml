@@ -1,0 +1,63 @@
+﻿@using DataLayer.ViewModels;
+@model IEnumerable<ShowOrderViewModel>
+
+
+<!-- start content -->
+<div class="container baskets-style margin-top-20 "style="max-width:100%">
+
+    <div class="row basket-style">
+        <section class="border-radius">
+            <div class="tbl-head">
+                <ul>
+                    <li> شرح محصول </li>
+                    <li> تعداد و وزن </li>
+                    <li> قیمت واحد </li>
+                    <li> قیمت کل   </li>
+                </ul>
+            </div>
+            <div class="hidden-head">
+                سبد خرید شما
+            </div>
+            <div class="tbl-body">
+                <!-- Each Row -->
+                @foreach (var item in Model)
+                {
+                    <ul>
+                        <li>
+                            <a href="" class="product-image"><img class="border-radius" src="~/Images/ThumbNail/@item.Image"></a>
+                            <div class="product-info-left-side">
+                                <a href="" class="product-title"> <h3> @item.Title </h3> </a>
+                            </div>
+                        </li>
+                        <li>
+                            <p>
+                                <input type="number" name="points" min="1" max="30" step="1" onchange="commandOrder(@item.ProductID,$(this).val())" value="@item.Count">
+                            </p>
+                        </li>
+                        <li>
+                            <label class="lbl-hidden"> قیمت واحد : </label> <span class="lbl-price"> @item.Price.ToString("#,0") تومان </span>
+                        </li>
+                        <li>
+                            <label class="lbl-hidden"> قیمت کل : </label> <span class="lbl-price"> @item.Sum.ToString("#,0") تومان </span>
+
+                            <a href="/ShopCart/Payment" onclick="commandOrder(@item.ProductID,0)"><i class="delete-button">X</i></a>
+                        </li>
+                    </ul>
+                }
+                <!-- End Each Row -->
+
+
+            </div>
+            <div class="tbl-footer">
+                <ul>
+                    <li> قیمت کل : <span> @Model.Sum(x => x.Sum).ToString("#,0") تومان </span></li>
+                    <li class="total-price"> مبلغ قابل پرداخت : <span> @Model.Sum(x => x.Sum).ToString("#,0")تومان </span></li>
+                </ul>
+            </div>
+            <button type="button" class="border-radius submit-basket-button"> تایید و پرداخت </button>
+            <div class="clearfix"></div>
+        </section>
+    </div>
+
+</div>
+<!-- End content -->
