@@ -1408,6 +1408,7 @@
     <Compile Include="Areas\UserPanel\Controllers\AccountController.cs" />
     <Compile Include="Areas\UserPanel\UserPanelAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CompareController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageEmailController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -1460,6 +1461,8 @@
     <Content Include="Views\ShopCart\ShowCart.cshtml" />
     <Content Include="Views\ShopCart\Index.cshtml" />
     <Content Include="Views\ShopCart\Order.cshtml" />
+    <Content Include="Views\Compare\ListCompare.cshtml" />
+    <Content Include="Views\Compare\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

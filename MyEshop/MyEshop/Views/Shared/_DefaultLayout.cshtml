@@ -97,26 +97,9 @@
             </div>
             <!-- End Basket -->
             <!-- compare -->
-            <section class="border-radius compare-side">
-                <header><h3> لیست مقایسه </h3></header>
-                <article>
-                    <ul>
-                        <li>
-                            <i class="delete-compare">X</i>
-                            <a href="">محصول شماره یک </a>
-                        </li>
-                        <li>
-                            <i class="delete-compare">X</i>
-                            <a href="">محصول شماره یک </a>
-                        </li>
-                        <li>
-                            <i class="delete-compare">X</i>
-                            <a href="">محصول شماره یک </a>
-                        </li>
-                    </ul>
-                    <a href="" class="show-compare-list border-radius">مشاهده لیست مقایسه</a>
-                </article>
-            </section>
+            <div id="compare">
+                @Html.Action("ListCompare","Compare")
+            </div>
             <!-- End compare -->
             <!-- Category -->
             @Html.Action("ShowGroups", "Product", new { area = "" });
@@ -229,6 +212,20 @@
         function updateShopCart() {
             $("#showShopCart").load("/ShopCart/ShowCart").fadeOut(800).fadeIn(800);
         }
+
+        function addToCompare(id)
+        {
+            $.get("/Compare/AddToCompare?id=" + id, function (res) {
+                $("#compare").html(res);
+            });
+        }
+
+        function deleteCompare(id) {
+            $.get("/Compare/DeleteFromCompareList?id=" + id, function (res) {
+                $("#compare").html(res);
+            });
+        }
+
     </script>
 </body>
 </html>

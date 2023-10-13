@@ -89,16 +89,16 @@
     <Compile Include="Features.cs">
       <DependentUpon>EshopModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="FeaturesMetaData.cs" />
+    <Compile Include="MetaDataClasses\FeaturesMetaData.cs" />
     <Compile Include="MetaDataClasses\RolesMetaData.cs" />
     <Compile Include="OrderDetails.cs">
       <DependentUpon>EshopModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="OrderDetailsMetaData.cs" />
+    <Compile Include="MetaDataClasses\OrderDetailsMetaData.cs" />
     <Compile Include="Orders.cs">
       <DependentUpon>EshopModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="OrdersMetaData.cs" />
+    <Compile Include="MetaDataClasses\OrdersMetaData.cs" />
     <Compile Include="Products.cs">
       <DependentUpon>EshopModel.tt</DependentUpon>
     </Compile>
@@ -106,11 +106,11 @@
     <Compile Include="Product_Comments.cs">
       <DependentUpon>EshopModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Product_CommentsMetaData.cs" />
+    <Compile Include="MetaDataClasses\Product_CommentsMetaData.cs" />
     <Compile Include="Product_Features.cs">
       <DependentUpon>EshopModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Product_FeaturesMetaData.cs" />
+    <Compile Include="MetaDataClasses\Product_FeaturesMetaData.cs" />
     <Compile Include="Product_Galleries.cs">
       <DependentUpon>EshopModel.tt</DependentUpon>
     </Compile>
@@ -134,12 +134,13 @@
     <Compile Include="Slider.cs">
       <DependentUpon>EshopModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SliderMetaData.cs" />
+    <Compile Include="MetaDataClasses\SliderMetaData.cs" />
     <Compile Include="Users.cs">
       <DependentUpon>EshopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MetaDataClasses\UsersMetaData.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
+    <Compile Include="ViewModels\CompreListViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\ShopingCartViewModel.cs" />
   </ItemGroup>
