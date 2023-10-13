@@ -30,6 +30,7 @@
         <AssociationConnector Association="MyEshop_DataBaseModel.FK_OrderDetails_Orders" />
         <AssociationConnector Association="MyEshop_DataBaseModel.FK_OrderDetails_Products" />
         <AssociationConnector Association="MyEshop_DataBaseModel.FK_Orders_Users" />
+        <EntityTypeShape EntityType="MyEshop_DataBaseModel.Slider" Width="1.5" PointX="5.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

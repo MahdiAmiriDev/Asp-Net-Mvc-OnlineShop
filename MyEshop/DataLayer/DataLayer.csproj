@@ -131,6 +131,10 @@
     <Compile Include="Roles.cs">
       <DependentUpon>EshopModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Slider.cs">
+      <DependentUpon>EshopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SliderMetaData.cs" />
     <Compile Include="Users.cs">
       <DependentUpon>EshopModel.tt</DependentUpon>
     </Compile>

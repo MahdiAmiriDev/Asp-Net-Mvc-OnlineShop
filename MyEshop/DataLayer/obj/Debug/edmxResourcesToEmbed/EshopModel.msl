@@ -127,5 +127,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Slider">
+      <EntityTypeMapping TypeName="MyEshop_DataBaseModel.Slider">
+        <MappingFragment StoreEntitySet="Slider">
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="SliderID" ColumnName="SliderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

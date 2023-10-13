@@ -74,6 +74,7 @@
       <End Role="Users" EntitySet="Users" />
       <End Role="Orders" EntitySet="Orders" />
     </AssociationSet>
+    <EntitySet Name="Slider" EntityType="MyEshop_DataBaseModel.Slider" />
   </EntityContainer>
   <EntityType Name="Users">
     <Key>
@@ -362,4 +363,16 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="SliderID" />
+    </Key>
+    <Property Name="SliderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="ImageName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Url" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

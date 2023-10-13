@@ -101,6 +101,18 @@
     <Property Name="RoleTitle" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="RoleName" Type="varchar" MaxLength="150" Nullable="false" />
   </EntityType>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="SliderID" />
+    </Key>
+    <Property Name="SliderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="350" Nullable="false" />
+    <Property Name="Url" Type="nvarchar" MaxLength="450" Nullable="false" />
+    <Property Name="ImageName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="userID" />
@@ -270,6 +282,7 @@
     <EntitySet Name="Product_Tags" EntityType="Self.Product_Tags" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_OrderDetails_Orders" Association="Self.FK_OrderDetails_Orders">
       <End Role="Orders" EntitySet="Orders" />

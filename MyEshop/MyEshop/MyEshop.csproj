@@ -1275,6 +1275,7 @@
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\carousel.js" />
     <Content Include="Content\js\jquery-v1.11.3.js" />
+    <Content Include="Content\js\kendo.all.min.js" />
     <Content Include="Content\js\modernizr.js" />
     <Content Include="Content\js\owl.carousel.js" />
     <Content Include="Content\js\script.js" />
@@ -1372,6 +1373,11 @@
     <Content Include="Areas\Admin\Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Areas\Admin\Views\Shared\_DefaultAdminLayout.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Sliders\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Sliders\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Sliders\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Sliders\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Sliders\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\ProductImages\NoImage.png" />
     <Content Include="Images\ThumbNail\NoImage.png" />
@@ -1397,6 +1403,7 @@
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\Product_GroupsController.cs" />
     <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SlidersController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\UserPanel\Controllers\AccountController.cs" />
     <Compile Include="Areas\UserPanel\UserPanelAreaRegistration.cs" />
@@ -1465,6 +1472,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\UserPanel\Models\" />
     <Folder Include="Areas\UserPanel\Views\Shared\" />
+    <Folder Include="Images\Slider\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
